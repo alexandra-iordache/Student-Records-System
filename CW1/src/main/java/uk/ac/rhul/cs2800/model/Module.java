@@ -6,7 +6,7 @@ package uk.ac.rhul.cs2800.model;
 public class Module {
   private String code;
   private String name;
-  private boolean mnc; // mandatory non-condonable
+  private boolean mnc; // Had to look up what this means mandatory non-condonable
 
   /**
    * Constructor for the Module class.

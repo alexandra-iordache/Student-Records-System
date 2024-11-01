@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 public class ModuleTest {
 
   @Test
+  // Test 1
   void testModuleCreation() {
     Module module = new Module("CS2800", "Software Engineering", true);
     assertEquals("CS2800", module.getCode());

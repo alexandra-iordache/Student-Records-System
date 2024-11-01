@@ -12,7 +12,9 @@ public class Registration {
   private Map<Module, Grade> registrations;
 
   /**
-   * Constructor for the Registration class.
+   * Constructor for the Registration class. Had to do it as a Hashmap in this setup, it allows each
+   * Student to register for multiple modules. This also makes it easy to add/retrieve grades for
+   * each module.
    */
   public Registration() {
     registrations = new HashMap<>();

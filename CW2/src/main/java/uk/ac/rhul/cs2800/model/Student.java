@@ -6,11 +6,19 @@ import uk.ac.rhul.cs2800.exception.NoGradesAvailableException;
 import uk.ac.rhul.cs2800.exception.NoRegistrationException;
 
 /**
- * This class allows adding grades, registering modules, and retrieving module-specific grades.
+ * This class allows adding grades, registering modules,
+ * and retrieving module-specific grades.
  */
-public class Student {
+public final class Student {
 
+  /**
+   * The list of all grades assigned to this student.
+   */
   private List<Grade> grades;
+
+  /**
+   * The registration object holding module and grade information.
+   */
   private Registration registration;
 
   /**
@@ -24,16 +32,16 @@ public class Student {
   /**
    * Calculates and returns the average of all grades for the student.
    *
-   * @return the average grade as a float.
-   * @throws NoGradesAvailableException if there are no grades available for calculation.
+   * @return the average grade as a float
+   * @throws NoGradesAvailableException if there are no grades available
    */
   public float getComputerAverage() throws NoGradesAvailableException {
-    if (grades.isEmpty()) {
+    if (this.grades.isEmpty()) {
       throw new NoGradesAvailableException();
     }
 
-    float sum = 0.00f;
-    for (Grade grade : grades) {
+    float sum = 0.0f;
+    for (Grade grade : this.grades) {
       sum += grade.getScore();
     }
     return sum / this.grades.size();
@@ -42,40 +50,44 @@ public class Student {
   /**
    * Adds a new grade to the student's list of grades.
    *
-   * @param grade the Grade to add.
+   * @param grade the Grade to add
    */
-  public void addGrade(Grade grade) {
+  public void addGrade(final Grade grade) {
     this.grades.add(grade);
   }
 
   /**
    * Registers a module for the student.
    *
-   * @param module the Module to register.
+   * @param module the Module to register
    */
-  public void registerModule(Module module) {
+  public void registerModule(final Module module) {
     this.registration.registerModule(module);
   }
 
   /**
    * Adds a grade to a specific module for the student.
    *
-   * @param module the Module for which the grade is being added.
-   * @param grade  the Grade to add.
-   * @throws NoRegistrationException if the student is not registered for the specified module.
+   * @param module the Module for which the grade is being added
+   * @param grade the Grade to add
+   * @throws NoRegistrationException if the module is not registered
    */
-  public void addModuleGrade(Module module, Grade grade) throws NoRegistrationException {
+  public void addModuleGrade(final Module module, final Grade grade)
+      throws NoRegistrationException {
     this.registration.addGrade(module, grade);
   }
 
   /**
    * Retrieves the grade for a specific module.
    *
-   * @param module the Module for which the grade is being retrieved.
-   * @return the Grade for the specified module.
-   * @throws NoRegistrationException if the student is not registered for the specified module.
+   * @param module the Module for which the grade is being retrieved
+   * @return the Grade for the specified module
+   * @throws NoRegistrationException if the module is not registered
    */
-  public Grade getModuleGrade(Module module) throws NoRegistrationException {
+  public Grade getModuleGrade(final Module module)
+
+      throws NoRegistrationException {
     return this.registration.getGrade(module);
   }
+
 }

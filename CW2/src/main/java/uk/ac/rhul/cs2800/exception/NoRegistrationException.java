@@ -1,19 +1,18 @@
 package uk.ac.rhul.cs2800.exception;
 
 /**
- * Exception thrown when a student tries to access a grade for an unregistered module.
+ * Thrown when a module is requested that is not registered.
  */
 public class NoRegistrationException extends Exception {
 
   private static final long serialVersionUID = 1L;
 
   /**
-   * Constructor calling parent class constructor using super.
+   * Constructs a new NoRegistrationException with a detail message.
    *
-   * @param message paramater being called.
+   * @param message the detail message
    */
-
-  public NoRegistrationException(String message) {
+  public NoRegistrationException(final String message) {
     super(message);
   }
 }

@@ -3,35 +3,62 @@ package uk.ac.rhul.cs2800.model;
 /**
  * This is a class defined for Module.
  */
-public class Module {
+public final class Module {
+
+  /**
+   * The module code.
+   */
   private String code;
+
+  /**
+   * The module name.
+   */
   private String name;
-  private boolean mnc; // Had to look up what this means mandatory non-condonable
+
+  /**
+   * Indicates if the module is mandatory non-condonable.
+   */
+  private boolean mnc;
 
   /**
    * Constructor for the Module class.
    *
-   * @param code the module code
-   * @param name the module name
-   * @param mnc whether the module is mandatory non-condonable
+   * @param moduleCode the module code
+   * @param moduleName the module name
+   * @param mandatoryNonCondonable if the module is mandatory non-condonable
    */
-  public Module(String code, String name, boolean mnc) {
-    this.code = code;
-    this.name = name;
-    this.mnc = mnc;
+  public Module(final String moduleCode, final String moduleName,
+      final boolean mandatoryNonCondonable) {
+    this.code = moduleCode;
+    this.name = moduleName;
+    this.mnc = mandatoryNonCondonable;
   }
 
+  /**
+   * Get the module code.
+   *
+   * @return the module code
+   */
   public String getCode() {
-    return code;
+    return this.code;
   }
 
+  /**
+   * Get the module name.
+   *
+   * @return the module name
+   */
   public String getName() {
-    return name;
+    return this.name;
   }
 
+  /**
+   * Check if the module is mandatory non-condonable.
+   *
+   * @return true if mandatory non-condonable, false otherwise
+   */
   public boolean isMandatoryNonCondonable() {
-    return mnc;
+    return this.mnc;
   }
-
 
 }

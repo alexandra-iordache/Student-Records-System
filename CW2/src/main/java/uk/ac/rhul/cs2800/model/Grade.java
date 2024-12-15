@@ -3,32 +3,45 @@ package uk.ac.rhul.cs2800.model;
 /**
  * This is a class defined for Grade.
  */
-public class Grade {
-
-  int score;
+public final class Grade {
 
   /**
-   * This is a constructor for the class Grade.
+   * The score for this grade.
+   */
+  private int score;
+
+  /**
+   * Constructs a Grade with default score 0.
    */
   public Grade() {
-
+    // default constructor
   }
 
   /**
-   * This is an instance method.
+   * Constructs a Grade with the given score.
    *
-   * @param d is a paramater inmported in to the grade method
+   * @param d the initial score for this Grade
    */
-  public Grade(int d) {
+  public Grade(final int d) {
     this.score = d;
   }
 
+  /**
+   * Retrieves the score.
+   *
+   * @return the score of this grade
+   */
   public int getScore() {
-    return score;
+    return this.score;
   }
 
-  public void setScore(int score) {
-    this.score = score;
+  /**
+   * Sets the score for this grade.
+   *
+   * @param newScore the new score
+   */
+  public void setScore(final int newScore) {
+    this.score = newScore;
   }
 
 }

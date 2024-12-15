@@ -7,17 +7,19 @@ import uk.ac.rhul.cs2800.exception.NoRegistrationException;
 /**
  * This class manages module registrations for a student.
  */
-public class Registration {
+public final class Registration {
 
+  /**
+   * A mapping from Module objects to their Grade.
+   */
   private Map<Module, Grade> registrations;
 
   /**
-   * Constructor for the Registration class. Had to do it as a Hashmap in this setup, it allows each
-   * Student to register for multiple modules. This also makes it easy to add/retrieve grades for
-   * each module.
+   * Constructor for the Registration class.
+   * Uses a HashMap to store modules and their associated grades.
    */
   public Registration() {
-    registrations = new HashMap<>();
+    this.registrations = new HashMap<>();
   }
 
   /**
@@ -25,8 +27,8 @@ public class Registration {
    *
    * @param module the module to be registered
    */
-  public void registerModule(Module module) {
-    registrations.putIfAbsent(module, null);
+  public void registerModule(final Module module) {
+    this.registrations.putIfAbsent(module, null);
   }
 
   /**
@@ -36,11 +38,13 @@ public class Registration {
    * @param grade the grade to be added
    * @throws NoRegistrationException if the module is not registered
    */
-  public void addGrade(Module module, Grade grade) throws NoRegistrationException {
-    if (!registrations.containsKey(module)) {
+  public void addGrade(final Module module, final Grade grade)
+
+      throws NoRegistrationException {
+    if (!this.registrations.containsKey(module)) {
       throw new NoRegistrationException("Module not registered");
     }
-    registrations.put(module, grade);
+    this.registrations.put(module, grade);
   }
 
   /**
@@ -50,10 +54,11 @@ public class Registration {
    * @return the grade for the module
    * @throws NoRegistrationException if the module is not registered
    */
-  public Grade getGrade(Module module) throws NoRegistrationException {
-    if (!registrations.containsKey(module)) {
+  public Grade getGrade(final Module module) throws NoRegistrationException {
+    if (!this.registrations.containsKey(module)) {
       throw new NoRegistrationException("Module not registered");
     }
-    return registrations.get(module);
+    return this.registrations.get(module);
   }
+
 }

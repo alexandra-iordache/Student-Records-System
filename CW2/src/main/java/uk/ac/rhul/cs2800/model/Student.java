@@ -2,6 +2,9 @@ package uk.ac.rhul.cs2800.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import uk.ac.rhul.cs2800.exception.NoGradesAvailableException;
 import uk.ac.rhul.cs2800.exception.NoRegistrationException;
 
@@ -9,7 +12,15 @@ import uk.ac.rhul.cs2800.exception.NoRegistrationException;
  * This class allows adding grades, registering modules,
  * and retrieving module-specific grades.
  */
+
+@Entity
+
 public final class Student {
+
+  @Id
+  @GeneratedValue
+  Long id;
+
 
   /**
    * The list of all grades assigned to this student.

@@ -1,9 +1,20 @@
 package uk.ac.rhul.cs2800.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+
 /**
  * This is a class defined for Module.
  */
+
+@Entity
+
 public final class Module {
+
+  @Id
+  @GeneratedValue
+  Long id;
 
   /**
    * The module code.

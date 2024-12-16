@@ -2,12 +2,20 @@ package uk.ac.rhul.cs2800.model;
 
 import java.util.HashMap;
 import java.util.Map;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import uk.ac.rhul.cs2800.exception.NoRegistrationException;
 
 /**
  * This class manages module registrations for a student.
  */
+@Entity
 public final class Registration {
+
+  @Id
+  @GeneratedValue
+  Long id;
 
   /**
    * A mapping from Module objects to their Grade.

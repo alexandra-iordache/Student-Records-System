@@ -1,9 +1,21 @@
 package uk.ac.rhul.cs2800.model;
 
+import jakarta.persistence.Id;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+
 /**
  * This is a class defined for Grade.
  */
+@Entity
+
 public final class Grade {
+
+  @Id
+  @GeneratedValue
+
+  Long id;
 
   /**
    * The score for this grade.

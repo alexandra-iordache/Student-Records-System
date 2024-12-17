@@ -1,9 +1,10 @@
 package uk.ac.rhul.cs2800.model;
 
-import jakarta.persistence.Id;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 /**
  * This is a class defined for Grade.
@@ -12,7 +13,10 @@ import jakarta.persistence.GeneratedValue;
 
 public final class Grade {
 
-  @Id
+  /**
+   * Doing entities.
+   */
+  private @Id
   @GeneratedValue
 
   Long id;
@@ -21,6 +25,25 @@ public final class Grade {
    * The score for this grade.
    */
   private int score;
+
+  /**
+   * Added references to Module and Registration
+   * so we can map the Map<Module, Grade>.
+   */
+
+  @ManyToOne
+  @JoinColumn(name = "module_id")
+  private Module module;
+
+  /**
+   * Added references to Module and Registration
+   *
+   * so we can map the Map<Module, Grade>.
+   */
+
+  @ManyToOne
+  @JoinColumn(name = "registration_id")
+  private Registration registration;
 
   /**
    * Constructs a Grade with default score 0.

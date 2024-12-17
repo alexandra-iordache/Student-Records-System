@@ -2,9 +2,11 @@ package uk.ac.rhul.cs2800.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import uk.ac.rhul.cs2800.exception.NoGradesAvailableException;
 import uk.ac.rhul.cs2800.exception.NoRegistrationException;
 
@@ -17,7 +19,10 @@ import uk.ac.rhul.cs2800.exception.NoRegistrationException;
 
 public final class Student {
 
-  @Id
+  /**
+   * Added entities.
+   */
+  private @Id
   @GeneratedValue
   Long id;
 
@@ -30,6 +35,8 @@ public final class Student {
   /**
    * The registration object holding module and grade information.
    */
+  @OneToOne(cascade = CascadeType.ALL)
+
   private Registration registration;
 
   /**

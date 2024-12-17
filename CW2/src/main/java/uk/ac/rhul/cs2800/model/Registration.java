@@ -5,6 +5,8 @@ import java.util.Map;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.MapKey;
+import jakarta.persistence.OneToMany;
 import uk.ac.rhul.cs2800.exception.NoRegistrationException;
 
 /**
@@ -13,14 +15,23 @@ import uk.ac.rhul.cs2800.exception.NoRegistrationException;
 @Entity
 public final class Registration {
 
-  @Id
+  /**
+   * Added entities.
+   */
+  private @Id
   @GeneratedValue
   Long id;
 
+
   /**
-   * A mapping from Module objects to their Grade.
+   * Using OneToMany with a map of Module->Grade.
+   * The @MapKey annotation tells JPA to use
+   * the 'module' field of Grade as the key.
    */
+  @OneToMany(mappedBy = "registration")
+  @MapKey(name = "module")
   private Map<Module, Grade> registrations;
+
 
   /**
    * Constructor for the Registration class.

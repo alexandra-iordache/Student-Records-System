@@ -1,8 +1,11 @@
 package uk.ac.rhul.cs2800.model;
 
+import java.util.ArrayList;
+import java.util.List;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 /**
  * This is a class defined for Module.
@@ -12,7 +15,10 @@ import jakarta.persistence.Id;
 
 public final class Module {
 
-  @Id
+  /**
+   * Added in entities.
+   */
+  private @Id
   @GeneratedValue
   Long id;
 
@@ -30,6 +36,12 @@ public final class Module {
    * Indicates if the module is mandatory non-condonable.
    */
   private boolean mnc;
+
+  /**
+   * Private registration list.
+   */
+  @OneToMany(mappedBy = "module")
+  private List<Registration> registrations = new ArrayList<>();
 
   /**
    * Constructor for the Module class.

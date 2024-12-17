@@ -5,6 +5,8 @@ import java.util.Map;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.MapKey;
 import jakarta.persistence.OneToMany;
 import uk.ac.rhul.cs2800.exception.NoRegistrationException;
@@ -22,11 +24,16 @@ public final class Registration {
   @GeneratedValue
   Long id;
 
+  /**
+   * Reference to Module for bidirectional relationship.
+   */
+  @ManyToOne
+  @JoinColumn(name = "module_id")
+  private Module module;
 
   /**
-   * Using OneToMany with a map of Module->Grade.
-   * The @MapKey annotation tells JPA to use
-   * the 'module' field of Grade as the key.
+   * Using OneToMany with a map of Module->Grade. The @MapKey annotation tells JPA to use the
+   * 'module' field of Grade as the key.
    */
   @OneToMany(mappedBy = "registration")
   @MapKey(name = "module")

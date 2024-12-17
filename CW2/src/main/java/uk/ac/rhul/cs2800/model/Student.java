@@ -6,6 +6,7 @@ import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import uk.ac.rhul.cs2800.exception.NoGradesAvailableException;
 import uk.ac.rhul.cs2800.exception.NoRegistrationException;
@@ -30,7 +31,8 @@ public final class Student {
   /**
    * The list of all grades assigned to this student.
    */
-  private List<Grade> grades;
+  @OneToMany(cascade = CascadeType.ALL)
+  private List<Grade> grades = new ArrayList<>();
 
   /**
    * The registration object holding module and grade information.

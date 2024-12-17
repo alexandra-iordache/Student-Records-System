@@ -2,6 +2,12 @@ package uk.ac.rhul.cs2800.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import uk.ac.rhul.cs2800.exception.NoGradesAvailableException;
 import uk.ac.rhul.cs2800.exception.NoRegistrationException;
 
@@ -9,16 +15,30 @@ import uk.ac.rhul.cs2800.exception.NoRegistrationException;
  * This class allows adding grades, registering modules,
  * and retrieving module-specific grades.
  */
+
+@Entity
+
 public final class Student {
+
+  /**
+   * Added entities.
+   */
+  private @Id
+  @GeneratedValue
+  Long id;
+
 
   /**
    * The list of all grades assigned to this student.
    */
-  private List<Grade> grades;
+  @OneToMany(cascade = CascadeType.ALL)
+  private List<Grade> grades = new ArrayList<>();
 
   /**
    * The registration object holding module and grade information.
    */
+  @OneToOne(cascade = CascadeType.ALL)
+
   private Registration registration;
 
   /**

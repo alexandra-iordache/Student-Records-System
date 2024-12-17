@@ -2,17 +2,43 @@ package uk.ac.rhul.cs2800.model;
 
 import java.util.HashMap;
 import java.util.Map;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.MapKey;
+import jakarta.persistence.OneToMany;
 import uk.ac.rhul.cs2800.exception.NoRegistrationException;
 
 /**
  * This class manages module registrations for a student.
  */
+@Entity
 public final class Registration {
 
   /**
-   * A mapping from Module objects to their Grade.
+   * Added entities.
    */
+  private @Id
+  @GeneratedValue
+  Long id;
+
+  /**
+   * Reference to Module for bidirectional relationship.
+   */
+  @ManyToOne
+  @JoinColumn(name = "module_id")
+  private Module module;
+
+  /**
+   * Using OneToMany with a map of Module->Grade. The @MapKey annotation tells JPA to use the
+   * 'module' field of Grade as the key.
+   */
+  @OneToMany(mappedBy = "registration")
+  @MapKey(name = "module")
   private Map<Module, Grade> registrations;
+
 
   /**
    * Constructor for the Registration class.

@@ -45,6 +45,10 @@ public final class Grade {
   @JoinColumn(name = "registration_id")
   private Registration registration;
 
+  @ManyToOne
+  @JoinColumn(name = "student_id")
+  private Student student;
+
   /**
    * Constructs a Grade with default score 0.
    */
@@ -78,5 +82,37 @@ public final class Grade {
   public void setScore(final int newScore) {
     this.score = newScore;
   }
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
+
+  public Module getModule() {
+    return module;
+  }
+
+  public void setModule(Module module) {
+    this.module = module;
+  }
+
+  public void setStudent(Student student) {
+    this.student = student;
+
+  }
+
+  /**
+   * Getter and Setter for Student
+   * 
+   * @return student.s
+   */
+  public Student getStudent() {
+    return student;
+  }
+
+
 
 }

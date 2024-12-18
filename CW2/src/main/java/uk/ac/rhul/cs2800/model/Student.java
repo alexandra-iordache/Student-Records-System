@@ -31,9 +31,17 @@ public final class Student {
   /**
    * The list of all grades assigned to this student.
    */
-  @OneToMany(cascade = CascadeType.ALL)
+  @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true)
   private List<Grade> grades = new ArrayList<>();
 
+  // Getter and Setter for Grades
+  public List<Grade> getGrades() {
+    return grades;
+  }
+
+  public void setGrades(List<Grade> grades) {
+    this.grades = grades;
+  }
   /**
    * The registration object holding module and grade information.
    */
@@ -55,7 +63,7 @@ public final class Student {
    * @return the average grade as a float
    * @throws NoGradesAvailableException if there are no grades available
    */
-  public float getComputerAverage() throws NoGradesAvailableException {
+  public float computeAverage() throws NoGradesAvailableException {
     if (this.grades.isEmpty()) {
       throw new NoGradesAvailableException();
     }
@@ -104,7 +112,7 @@ public final class Student {
    * @return the Grade for the specified module
    * @throws NoRegistrationException if the module is not registered
    */
-  public Grade getModuleGrade(final Module module)
+  public Grade obtainModuleGrade(final Module module)
 
       throws NoRegistrationException {
     return this.registration.getGrade(module);

@@ -9,6 +9,13 @@ import jakarta.persistence.MapKey;
 import jakarta.persistence.OneToMany;
 import java.util.HashMap;
 import java.util.Map;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.MapKey;
+import jakarta.persistence.OneToMany;
 import uk.ac.rhul.cs2800.exception.NoRegistrationException;
 
 /**
@@ -38,6 +45,7 @@ public final class Registration {
   @OneToMany(mappedBy = "registration")
   @MapKey(name = "module")
   private Map<Module, Grade> registrations = new HashMap<>();
+
 
   /**
    * Constructor for the Registration class.

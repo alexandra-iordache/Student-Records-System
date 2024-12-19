@@ -18,7 +18,6 @@ public final class Grade {
    */
   private @Id
   @GeneratedValue
-
   Long id;
 
   /**
@@ -27,8 +26,7 @@ public final class Grade {
   private int score;
 
   /**
-   * Added references to Module and Registration
-   * so we can map the Map<Module, Grade>.
+   * Added references to Module so we can map the Map.
    */
 
   @ManyToOne
@@ -36,14 +34,20 @@ public final class Grade {
   private Module module;
 
   /**
-   * Added references to Module and Registration
-   *
-   * so we can map the Map<Module, Grade>.
+   * Added references to Registration so we can map the Map.
    */
 
   @ManyToOne
   @JoinColumn(name = "registration_id")
   private Registration registration;
+
+  /**
+   * Added references to Student so we can map the Map.
+   */
+
+  @ManyToOne
+  @JoinColumn(name = "student_id")
+  private Student student;
 
   /**
    * Constructs a Grade with default score 0.
@@ -62,9 +66,9 @@ public final class Grade {
   }
 
   /**
-   * Retrieves the score.
+   * Retrieves the score of this grade.
    *
-   * @return the score of this grade
+   * @return the score
    */
   public int getScore() {
     return this.score;
@@ -78,5 +82,62 @@ public final class Grade {
   public void setScore(final int newScore) {
     this.score = newScore;
   }
+
+  /**
+   * Gets the Id of the grade.
+   *
+   * @return the id
+   */
+  public Long getId() {
+    return id;
+  }
+
+  /**
+   * Sets the id of the grade.
+   *
+   * @param newId to grade
+   */
+  public void setId(final Long newId) {
+    this.id = newId;
+  }
+
+  /**
+   * Gets module for grade.
+   *
+   * @return module
+   */
+
+  public Module getModule() {
+    return module;
+  }
+
+  /**
+   * Sets the module associated with this grade.
+   *
+   * @param newModule the module to associate
+   */
+  public void setModule(final Module newModule) {
+    this.module = newModule;
+  }
+
+  /**
+   * Sets the student associated with this grade.
+   *
+   * @param newStudent the student to associate
+   */
+  public void setStudent(final Student newStudent) {
+    this.student = newStudent;
+
+  }
+
+  /**
+   * Getter and Setter for Student.
+   *
+   * @return student.
+   */
+  public Student getStudent() {
+    return student;
+  }
+
 
 }

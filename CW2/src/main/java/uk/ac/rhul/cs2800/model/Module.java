@@ -1,11 +1,12 @@
 package uk.ac.rhul.cs2800.model;
 
-import java.util.ArrayList;
-import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * This is a class defined for Module.
@@ -18,8 +19,8 @@ public final class Module {
   /**
    * Added in entities.
    */
-  private @Id
-  @GeneratedValue
+  private @Id @GeneratedValue
+
   Long id;
 
   /**

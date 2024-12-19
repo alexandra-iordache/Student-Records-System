@@ -18,7 +18,6 @@ public final class Grade {
    */
   private @Id
   @GeneratedValue
-
   Long id;
 
   /**
@@ -27,8 +26,7 @@ public final class Grade {
   private int score;
 
   /**
-   * Added references to Module and Registration
-   * so we can map the Map<Module, Grade>.
+   * Added references to Module so we can map the Map.
    */
 
   @ManyToOne
@@ -36,14 +34,16 @@ public final class Grade {
   private Module module;
 
   /**
-   * Added references to Module and Registration
-   *
-   * so we can map the Map<Module, Grade>.
+   * Added references to Registration so we can map the Map.
    */
 
   @ManyToOne
   @JoinColumn(name = "registration_id")
   private Registration registration;
+
+  /**
+   * Added references to Student so we can map the Map.
+   */
 
   @ManyToOne
   @JoinColumn(name = "student_id")
@@ -66,9 +66,9 @@ public final class Grade {
   }
 
   /**
-   * Retrieves the score.
+   * Retrieves the score of this grade.
    *
-   * @return the score of this grade
+   * @return the score
    */
   public int getScore() {
     return this.score;
@@ -83,36 +83,61 @@ public final class Grade {
     this.score = newScore;
   }
 
+  /**
+   * Gets the Id of the grade.
+   *
+   * @return the id
+   */
   public Long getId() {
     return id;
   }
 
-  public void setId(Long id) {
+  /**
+   * Sets the id of the grade.
+   *
+   * @param id to grade
+   */
+  public void setId(final Long id) {
     this.id = id;
   }
+
+  /**
+   * Gets module for grade.
+   *
+   * @return module
+   */
 
   public Module getModule() {
     return module;
   }
 
-  public void setModule(Module module) {
+  /**
+   * Sets the module associated with this grade.
+   *
+   * @param module the module to associate
+   */
+  public void setModule(final Module module) {
     this.module = module;
   }
 
-  public void setStudent(Student student) {
+  /**
+   * Sets the student associated with this grade.
+   *
+   * @param student the student to associate
+   */
+  public void setStudent(final Student student) {
     this.student = student;
 
   }
 
   /**
-   * Getter and Setter for Student
-   * 
-   * @return student.s
+   * Getter and Setter for Student.
+   *
+   * @return student.
    */
   public Student getStudent() {
     return student;
   }
-
 
 
 }

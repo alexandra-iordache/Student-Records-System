@@ -95,10 +95,10 @@ public final class Grade {
   /**
    * Sets the id of the grade.
    *
-   * @param id to grade
+   * @param newId to grade
    */
-  public void setId(final Long id) {
-    this.id = id;
+  public void setId(final Long newId) {
+    this.id = newId;
   }
 
   /**
@@ -114,19 +114,19 @@ public final class Grade {
   /**
    * Sets the module associated with this grade.
    *
-   * @param module the module to associate
+   * @param newModule the module to associate
    */
-  public void setModule(final Module module) {
-    this.module = module;
+  public void setModule(final Module newModule) {
+    this.module = newModule;
   }
 
   /**
    * Sets the student associated with this grade.
    *
-   * @param student the student to associate
+   * @param newStudent the student to associate
    */
-  public void setStudent(final Student student) {
-    this.student = student;
+  public void setStudent(final Student newStudent) {
+    this.student = newStudent;
 
   }
 

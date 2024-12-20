@@ -81,10 +81,10 @@ public final class Student {
   /**
    * Sets the student's unique ID.
    *
-   * @param id the new ID to assign
+   * @param newId the new ID to assign
    */
-  public void setId(final Long id) {
-    this.id = id;
+  public void setId(final Long newId) {
+    this.id = newId;
   }
 
   /**
@@ -99,10 +99,10 @@ public final class Student {
   /**
    * Sets the student's first name.
    *
-   * @param firstName the new first name to assign
+   * @param newFirstName the new first name to assign
    */
-  public void setFirstName(final String firstName) {
-    this.firstName = firstName;
+  public void setFirstName(final String newFirstName) {
+    this.firstName = newFirstName;
   }
 
   /**
@@ -117,10 +117,10 @@ public final class Student {
   /**
    * Sets the student's last name.
    *
-   * @param lastName the new last name to assign
+   * @param newLastName the new last name to assign
    */
-  public void setLastName(final String lastName) {
-    this.lastName = lastName;
+  public void setLastName(final String newLastName) {
+    this.lastName = newLastName;
   }
 
   /**
@@ -135,10 +135,10 @@ public final class Student {
   /**
    * Sets the student's username.
    *
-   * @param username the new username to assign
+   * @param newUsername the new username to assign
    */
-  public void setUsername(final String username) {
-    this.username = username;
+  public void setUsername(final String newUsername) {
+    this.username = newUsername;
   }
 
   /**
@@ -153,10 +153,10 @@ public final class Student {
   /**
    * Sets the student's email.
    *
-   * @param email the new email address to assign
+   * @param newEmail the new email address to assign
    */
-  public void setEmail(final String email) {
-    this.email = email;
+  public void setEmail(final String newEmail) {
+    this.email = newEmail;
   }
 
   /**
@@ -171,10 +171,10 @@ public final class Student {
   /**
    * Sets the list of grades for this student.
    *
-   * @param grades the new list of grades
+   * @param newGrades the new list of grades
    */
-  public void setGrades(final List<Grade> grades) {
-    this.grades = grades;
+  public void setGrades(final List<Grade> newGrades) {
+    this.grades = newGrades;
   }
 
   /**

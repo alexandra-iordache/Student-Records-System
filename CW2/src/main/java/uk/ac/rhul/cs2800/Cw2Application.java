@@ -9,7 +9,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class Cw2Application {
 
-
+  protected Cw2Application() {
+    // n/a
+  }
   /**
    * The main entry point for the Spring Boot application.
    *

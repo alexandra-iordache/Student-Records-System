@@ -50,40 +50,40 @@ public final class Registration {
   /**
    * Registers a module for the student.
    *
-   * @param module the module to be registered
+   * @param newModule the module to be registered
    */
-  public void registerModule(final Module module) {
-    this.registrations.putIfAbsent(module, null);
+  public void registerModule(final Module newModule) {
+    this.registrations.putIfAbsent(newModule, null);
   }
 
   /**
    * Adds a grade for a registered module.
    *
-   * @param module the module to assign the grade
-   * @param grade the grade to be added
+   * @param newModule the module to assign the grade
+   * @param newGrade the grade to be added
    * @throws NoRegistrationException if the module is not registered
    */
-  public void addGrade(final Module module, final Grade grade)
+  public void addGrade(final Module newModule, final Grade newGrade)
 
       throws NoRegistrationException {
-    if (!this.registrations.containsKey(module)) {
+    if (!this.registrations.containsKey(newModule)) {
       throw new NoRegistrationException("Module not registered");
     }
-    this.registrations.put(module, grade);
+    this.registrations.put(newModule, newGrade);
   }
 
   /**
    * Gets the grade for a specific module.
    *
-   * @param module the module to retrieve the grade for
+   * @param newModule the module to retrieve the grade for
    * @return the grade for the module
    * @throws NoRegistrationException if the module is not registered
    */
-  public Grade getGrade(final Module module) throws NoRegistrationException {
-    if (!this.registrations.containsKey(module)) {
+  public Grade getGrade(final Module newModule) throws NoRegistrationException {
+    if (!this.registrations.containsKey(newModule)) {
       throw new NoRegistrationException("Module not registered");
     }
-    return this.registrations.get(module);
+    return this.registrations.get(newModule);
   }
 
 }

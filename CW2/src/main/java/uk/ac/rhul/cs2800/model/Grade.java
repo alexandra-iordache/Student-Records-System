@@ -30,7 +30,7 @@ public final class Grade {
    */
 
   @ManyToOne
-  @JoinColumn(name = "module_id")
+  @JoinColumn(name = "module_code", referencedColumnName = "code")
   private Module module;
 
   /**

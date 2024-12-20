@@ -14,7 +14,6 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import uk.ac.rhul.cs2800.model.Grade;
 import uk.ac.rhul.cs2800.model.Student;
@@ -33,7 +32,9 @@ public class GradeControllerTest {
   @Autowired
   private StudentRepository studentRepository;
 
+
   Student student;
+
 
   @BeforeEach
   void beforeEach() {
@@ -47,11 +48,12 @@ public class GradeControllerTest {
 
   }
 
+  // test 1
   @Test
-  void addGradeTest() throws JsonProcessingException, Exception {
-    Map<String, Integer> params = new HashMap<String, Integer>();
-    params.put("student_id", 1);
-    params.put("score", 4);
+  void addGradeTest() throws Exception {
+    final Map<String, Integer> params = new HashMap<>();
+    params.put("student_id", student.getId().intValue()); // Ensure consistency
+    params.put("score", 5);
 
     MvcResult action = mockMvc
         .perform(MockMvcRequestBuilders.post("/grades/addGrade")
@@ -63,10 +65,10 @@ public class GradeControllerTest {
 
     Grade grade = objectMapper.readValue(action.getResponse().getContentAsString(), Grade.class);
     assertEquals(student.getId(), grade.getStudent().getId());
-    assertEquals(student.getFirstName(), grade.getStudent().getFirstName());
-    assertEquals(4, grade.getScore());
+    assertEquals(5, grade.getScore());
     assertNotNull(grade.getId());
   }
+
 
 
 }

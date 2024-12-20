@@ -39,6 +39,7 @@ public final class Registration {
   @MapKey(name = "module")
   private Map<Module, Grade> registrations = new HashMap<>();
 
+
   /**
    * Constructor for the Registration class.
    * Uses a HashMap to store modules and their associated grades.

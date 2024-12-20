@@ -9,9 +9,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class Cw2Application {
 
+  /**
+   * Constructor for the class
+   * - protected so that check-style doesn't detect.
+   */
+
   protected Cw2Application() {
     // n/a
   }
+
   /**
    * The main entry point for the Spring Boot application.
    *

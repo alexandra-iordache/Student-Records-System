@@ -70,5 +70,13 @@ public class GradeController {
     return ResponseEntity.ok(savedGrade);
 
   }
+  @Test
+  public void testAddGrade() throws Exception {
+      mockMvc.perform(post("/grades/addGrade")
+          .contentType(MediaType.APPLICATION_JSON)
+          .content("{\"student_id\": 1, \"score\": 85}"))
+          .andExpect(status().isOk())
+          .andExpect(jsonPath("$.score").value(85));
+  }
 
 }

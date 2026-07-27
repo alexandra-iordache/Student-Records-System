@@ -15,6 +15,9 @@ public class RestConfiguration implements RepositoryRestConfigurer {
   @Override
   public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config,
       CorsRegistry cors) {
+  public final void configureRepositoryRestConfiguration(
+      final RepositoryRestConfiguration config,
+      final CorsRegistry cors) {
     config.exposeIdsFor(Student.class);
     config.exposeIdsFor(Module.class);
     config.exposeIdsFor(Grade.class);
